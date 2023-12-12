@@ -12,7 +12,7 @@ export PATH := $(HOME)/.pub-cache/bin:$(PATH)
 
 
 .PHONY: all
-all: version get fix analyze doc test
+all: clean fix analyze doc test
 
 .PHONY: test
 test: get
@@ -21,8 +21,16 @@ test: get
 
 .PHONY: get
 get:
+	@echo "Checking version..."
+	$(FLUTTER_CMD) --version
 	@echo "Getting dependencies..."
 	$(FLUTTER_CMD) pub get 
+	$(FLUTTER_CMD) gen-l10n
+
+.PHONY: clean
+clean: get
+	$(FLUTTER_CMD) clean
+	$(MAKE) get
 
 .PHONY: doc
 doc:
@@ -40,10 +48,5 @@ fix:
 	@echo "Fixing..."
 	$(DART_CMD) format .
 	$(DART_CMD) fix --apply
-
-.PHONY: version
-version:
-	@echo "Checking version..."
-	$(DART_CMD) --version
 
 
