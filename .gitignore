@@ -1,3 +1,7 @@
+# codegen
+*.*.dart
+lib/l10n/arb/*localizations*
+
 # Miscellaneous
 *.class
 *.log
