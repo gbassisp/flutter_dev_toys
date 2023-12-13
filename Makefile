@@ -26,6 +26,7 @@ get:
 	@echo "Getting dependencies..."
 	$(FLUTTER_CMD) pub get 
 	$(FLUTTER_CMD) gen-l10n
+	$(DART_CMD) format lib/l10n/arb --line-length 80
 
 .PHONY: clean
 clean: get
@@ -46,7 +47,7 @@ analyze:
 .PHONY: fix
 fix:
 	@echo "Fixing..."
-	$(DART_CMD) format .
+	$(DART_CMD) format lib test . --line-length 80
 	$(DART_CMD) fix --apply
 
 
