@@ -14,18 +14,15 @@ on:
 
 jobs:
   semantic-pull-request:
-    runs-on: ubuntu-latest
-    steps:
-      - run: make get
-      - uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+    with:
+      setup: make get
 
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: make get
-      - uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-        with:
-          flutter_channel: stable
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      setup: make get
+      flutter_channel: stable
 
   spell-check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
