@@ -4,5 +4,5 @@
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
     },
-    "newValue": "new value"
+    "generate": "Generate"
 }

@@ -1,5 +1,6 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dev_toys/app/view/home.dart';
 import 'package:flutter_dev_toys/l10n/arb/app_localizations.dart';
 
 class App extends StatelessWidget {
@@ -53,10 +54,10 @@ class App extends StatelessWidget {
         useMaterial3: true,
         swapLegacyOnMaterial3: true,
       ),
-      // themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const SizedBox(),
+      home: const HomeScreen(),
     );
   }
 }
