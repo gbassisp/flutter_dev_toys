@@ -116,10 +116,10 @@ packages:
     dependency: "direct main"
     description:
       name: lean_extensions
-      sha256: b7669d60452e48d457f10e174ad2eab943476ce1e2a79163abf82786275b15bb
+      sha256: d687005b2fef02ec258ca47d3d2d5d8fbe4fa153c24271759d1335a537502f48
       url: "https://pub.dev"
     source: hosted
-    version: "0.11.1"
+    version: "0.11.2"
   matcher:
     dependency: transitive
     description:
