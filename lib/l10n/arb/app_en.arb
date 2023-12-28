@@ -1,18 +1,22 @@
 {
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    },
-    "generate": "Generate",
-    "length": "Length: {count, plural, other{{count} characters} one{{count} character}}",
-    "@length": {
-        "description": "length of password characters",
-        "placeholders": {
-            "count": {
-              "type": "int",
-              "example": "1" 
-            }
-        }
+  "@@locale": "en",
+  "counterAppBarTitle": "Counter",
+  "@counterAppBarTitle": {
+    "description": "Text shown in the AppBar of the Counter Page"
+  },
+  "copy": "Copy",
+  "@copy": {
+    "description": "copy"
+  },
+  "generate": "Generate",
+  "length": "Length: {count, plural, other{{count} characters} one{{count} character}}",
+  "@length": {
+    "description": "length of password characters",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
     }
+  }
 }
