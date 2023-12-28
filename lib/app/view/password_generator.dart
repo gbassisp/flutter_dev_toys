@@ -21,15 +21,17 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
       body: SingleChildScrollView(
         child: Wrap(
           children: [
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  _value = Random().nextString();
-                });
-              },
-              child: Text(context.l10n.generate),
+            ListTile(
+              title: Card(child: SelectableText(_value)),
+              trailing: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _value = Random().nextString();
+                  });
+                },
+                child: Text(context.l10n.generate),
+              ),
             ),
-            Card(child: SelectableText(_value)),
           ],
         ),
       ),
