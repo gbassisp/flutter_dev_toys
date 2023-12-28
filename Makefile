@@ -11,8 +11,9 @@ FLUTTER_CMD := $(FVM_CMD) flutter
 export PATH := $(HOME)/.pub-cache/bin:$(PATH)
 
 
-.PHONY: all
-all: clean fix analyze doc test
+.PHONY: all --basic
+all: --basic doc
+--basic: clean fix analyze test
 
 .PHONY: test
 test: get
@@ -59,6 +60,6 @@ fix:
 .PHONY: chrome-extension chrome extension # Either of these targets are acceptable
 chrome-extension: chrome
 extension: chrome
-chrome: all
+chrome: --basic
 	$(FLUTTER_CMD) build web --web-renderer html --csp --release
 
