@@ -18,5 +18,9 @@
         "example": "1"
       }
     }
+  },
+  "passwordGenerator": "Password generator",
+  "@passwordGenerator": {
+    "description": "passwordGenerator"
   }
 }
