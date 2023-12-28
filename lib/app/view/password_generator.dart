@@ -66,7 +66,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
 }
 
 class CopiableText extends StatefulWidget {
-  const CopiableText({required this.text, super.key});
+  CopiableText({required this.text}) : super(key: UniqueKey());
 
   final String text;
 
@@ -81,21 +81,19 @@ class _CopiableTextState extends State<CopiableText> {
 
   Future<void> _copyToClipboard() async {
     await Clipboard.setData(ClipboardData(text: _value));
-    setState(() {
-      _copied = true;
-    });
+    setState(() => _copied = true);
   }
-
-  final _before = const Icon(Icons.copy_rounded);
-  final _after = const Icon(Icons.paste_rounded);
 
   @override
   Widget build(BuildContext context) {
+    const before = Icon(Icons.copy_rounded);
+    const after = Icon(Icons.check_rounded);
+
     return ListTile(
       title: Card(child: SelectableText(_value)),
       trailing: IconButton(
         onPressed: _enabled ? _copyToClipboard : null,
-        icon: _copied ? _after : _before,
+        icon: _copied ? after : before,
         tooltip: context.l10n.copy,
       ),
     );
