@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
 import 'package:lean_extensions/lean_extensions.dart';
 
@@ -43,7 +44,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
           children: [
             ListTile(
               leading: const Icon(Icons.password_rounded),
-              title: Card(child: SelectableText(_value)),
+              title: CopiableText(text: _value),
               subtitle: Slider.adaptive(
                 onChanged: _setSize,
                 value: _size.toDouble(),
@@ -59,6 +60,43 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CopiableText extends StatefulWidget {
+  const CopiableText({required this.text, super.key});
+
+  final String text;
+
+  @override
+  State<CopiableText> createState() => _CopiableTextState();
+}
+
+class _CopiableTextState extends State<CopiableText> {
+  String get _value => widget.text;
+  bool get _enabled => _value.isNotEmpty;
+  bool _copied = false;
+
+  Future<void> _copyToClipboard() async {
+    await Clipboard.setData(ClipboardData(text: _value));
+    setState(() {
+      _copied = true;
+    });
+  }
+
+  final _before = const Icon(Icons.copy_rounded);
+  final _after = const Icon(Icons.paste_rounded);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Card(child: SelectableText(_value)),
+      trailing: IconButton(
+        onPressed: _enabled ? _copyToClipboard : null,
+        icon: _copied ? _after : _before,
+        tooltip: context.l10n.copy,
       ),
     );
   }
