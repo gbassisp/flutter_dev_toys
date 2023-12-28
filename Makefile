@@ -50,4 +50,9 @@ fix:
 	$(DART_CMD) format lib test . --line-length 80
 	$(DART_CMD) fix --apply
 
+.PHONY: chrome-extension chrome extension
+chrome-extension: all
+	$(FLUTTER_CMD) build web --web-renderer html --csp --release
 
+chrome: chrome-extension
+extension: chrome
