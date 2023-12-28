@@ -54,9 +54,11 @@ fix:
 	$(DART_CMD) format lib test . --line-length 80
 	$(DART_CMD) fix --apply
 
-.PHONY: chrome-extension chrome extension
-chrome-extension: all
+
+# Build chrome extension:
+.PHONY: chrome-extension chrome extension # Either of these targets are acceptable
+chrome-extension: chrome
+extension: chrome
+chrome: all
 	$(FLUTTER_CMD) build web --web-renderer html --csp --release
 
-chrome: chrome-extension
-extension: chrome
