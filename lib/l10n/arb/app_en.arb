@@ -9,6 +9,10 @@
     "description": "copy"
   },
   "generate": "Generate",
+  "invalidValue": "Invalid value",
+  "@invalidValue": {
+    "description": "invalidValue"
+  },
   "length": "Length: {count, plural, other{{count} characters} one{{count} character}}",
   "@length": {
     "description": "length of password characters",
@@ -19,8 +23,21 @@
       }
     }
   },
+  "numberConverter": "Number converter",
+  "@numberConverter": {
+    "description": "numberConverter"
+  },
   "passwordGenerator": "Password generator",
   "@passwordGenerator": {
     "description": "passwordGenerator"
+  },
+  "radix": "Base {base}",
+  "@radix": {
+    "description": "radix",
+    "placeholders": {
+      "base": {
+        "type": "int"
+      }
+    }
   }
 }
