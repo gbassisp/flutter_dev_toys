@@ -19,14 +19,18 @@ test: get
 	@echo "Running tests..."
 	$(FLUTTER_CMD) test --test-randomize-ordering-seed=random
 
+.PHONY: l10n
+l10n:
+	$(FLUTTER_CMD) gen-l10n
+	$(DART_CMD) format lib/l10n/arb --line-length 80
+
 .PHONY: get
 get:
 	@echo "Checking version..."
 	$(FLUTTER_CMD) --version
 	@echo "Getting dependencies..."
 	$(FLUTTER_CMD) pub get 
-	$(FLUTTER_CMD) gen-l10n
-	$(DART_CMD) format lib/l10n/arb --line-length 80
+	$(MAKE) l10n
 
 .PHONY: clean
 clean: get
