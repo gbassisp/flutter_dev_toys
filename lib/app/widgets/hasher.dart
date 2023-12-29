@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dev_toys/app/widgets/components.dart';
 import 'package:flutter_dev_toys/app/widgets/copiable_text.dart';
 import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
@@ -23,8 +24,8 @@ class HasherWidget extends StatefulWidget {
   State<HasherWidget> createState() => _HasherWidgetState();
 }
 
-class _HasherWidgetState extends State<HasherWidget> {
-  String _value = '';
+class _HasherWidgetState extends StringState<HasherWidget> {
+  late String _value = initial;
   Uint8List get _bytes => utf8.encode(_value);
 
   Widget _hash({required String name, required Hash algo}) {
