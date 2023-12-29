@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/widgets/copiable_text.dart';
+import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
 import 'package:lean_extensions/lean_extensions.dart';
 
@@ -15,50 +16,48 @@ class _NumberConverterState extends State<NumberConverter> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(context.l10n.numberConverter),
-        subtitle: Form(
-          autovalidateMode: AutovalidateMode.always,
-          child: Wrap(
-            children: [
-              _ConvertedNumber(
-                number: _value,
-                onChanged: (number) => setState(() => _value = number),
-                radix: 10,
-              ),
-              _ConvertedNumber(
-                number: _value,
-                onChanged: (number) => setState(() => _value = number),
-                radix: 2,
-              ),
-              _ConvertedNumber(
-                number: _value,
-                onChanged: (number) => setState(() => _value = number),
-                radix: 8,
-              ),
-              _ConvertedNumber(
-                number: _value,
-                onChanged: (number) => setState(() => _value = number),
-                radix: 16,
-              ),
-              _ConvertedNumber(
-                number: _value,
-                onChanged: (number) => setState(() => _value = number),
-                radix: 32,
-              ),
-              _ConvertedNumber(
-                number: _value,
-                onChanged: (number) => setState(() => _value = number),
-                radix: 62,
-              ),
-              _ConvertedNumber(
-                number: _value,
-                onChanged: (number) => setState(() => _value = number),
-                radix: 64,
-              ),
-            ],
-          ),
+    return ToyCard(
+      title: context.l10n.numberConverter,
+      child: Form(
+        autovalidateMode: AutovalidateMode.always,
+        child: Wrap(
+          children: [
+            _ConvertedNumber(
+              number: _value,
+              onChanged: (number) => setState(() => _value = number),
+              radix: 10,
+            ),
+            _ConvertedNumber(
+              number: _value,
+              onChanged: (number) => setState(() => _value = number),
+              radix: 2,
+            ),
+            _ConvertedNumber(
+              number: _value,
+              onChanged: (number) => setState(() => _value = number),
+              radix: 8,
+            ),
+            _ConvertedNumber(
+              number: _value,
+              onChanged: (number) => setState(() => _value = number),
+              radix: 16,
+            ),
+            _ConvertedNumber(
+              number: _value,
+              onChanged: (number) => setState(() => _value = number),
+              radix: 32,
+            ),
+            _ConvertedNumber(
+              number: _value,
+              onChanged: (number) => setState(() => _value = number),
+              radix: 62,
+            ),
+            _ConvertedNumber(
+              number: _value,
+              onChanged: (number) => setState(() => _value = number),
+              radix: 64,
+            ),
+          ],
         ),
       ),
     );
