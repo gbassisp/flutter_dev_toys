@@ -42,7 +42,6 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
     return ToyCard(
       title: context.l10n.passwordGenerator,
       child: ListTile(
-        leading: const Icon(Icons.password_rounded),
         title: CopiableText(text: _value),
         subtitle: Slider.adaptive(
           onChanged: _setSize,
