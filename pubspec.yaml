@@ -18,6 +18,8 @@ dependencies:
   lean_extensions: ^0.12.1
 
 dev_dependencies:
+  custom_lint: ^0.3.4
+  flutter_sane_lints: ^0.2.1
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.2
