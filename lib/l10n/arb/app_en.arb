@@ -9,6 +9,14 @@
     "description": "copy"
   },
   "generate": "Generate",
+  "hashing": "Hash",
+  "@hashing": {
+    "description": "hashing"
+  },
+  "input": "Input",
+  "@input": {
+    "description": "input"
+  },
   "invalidValue": "Invalid value",
   "@invalidValue": {
     "description": "invalidValue"
@@ -22,6 +30,10 @@
         "example": "1"
       }
     }
+  },
+  "md5": "MD5",
+  "@md5": {
+    "description": "md5"
   },
   "numberConverter": "Number converter",
   "@numberConverter": {
@@ -39,5 +51,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "sha1": "SHA-1",
+  "sha224": "SHA-224",
+  "sha256": "SHA-256",
+  "sha384": "SHA-384",
+  "sha512": "SHA-512",
+  "sha512224": "SHA-512/224",
+  "sha512256": "SHA-512/256"
 }
