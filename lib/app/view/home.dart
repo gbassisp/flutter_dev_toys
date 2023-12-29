@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/widgets/hasher.dart';
+import 'package:flutter_dev_toys/app/widgets/json_string.dart';
 import 'package:flutter_dev_toys/app/widgets/number_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/password_generator.dart';
 
@@ -13,11 +14,13 @@ class HomeScreen extends StatelessWidget {
         onTap: () => FocusScope.of(context).unfocus(),
         child: const SingleChildScrollView(
           child: FocusScope(
+            autofocus: true,
             child: Wrap(
               children: [
                 PasswordGeneratorScreen(),
                 NumberConverter(),
                 HasherWidget(),
+                JsonStringConverter(),
               ],
             ),
           ),
