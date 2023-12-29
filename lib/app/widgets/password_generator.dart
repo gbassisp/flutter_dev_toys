@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dev_toys/app/widgets/components.dart';
 import 'package:flutter_dev_toys/app/widgets/copiable_text.dart';
 import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
@@ -14,8 +15,9 @@ class PasswordGeneratorScreen extends StatefulWidget {
       _PasswordGeneratorScreenState();
 }
 
-class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
-  String _value = '';
+class _PasswordGeneratorScreenState
+    extends StringState<PasswordGeneratorScreen> {
+  late String _value = initial;
   int _size = 50;
   final _max = 100;
   final _min = 6;
