@@ -43,7 +43,10 @@ doc:
 	@echo "Generating documentation..."
 	@$(DART_CMD) doc || echo "Failed to generate documentation - maybe it's dart 2.12?"
 
-.PHONY: analyze
+.PHONY: analyze analyse lint analysis # main is always the first one
+lint: analyze
+analysis: analyze
+analyse: analyze
 analyze:
 	@echo "Analyzing..."
 	$(DART_CMD) analyze --fatal-infos --fatal-warnings
