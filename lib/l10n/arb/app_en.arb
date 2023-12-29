@@ -8,6 +8,8 @@
   "@copy": {
     "description": "copy"
   },
+  "decoded": "Decoded",
+  "encoded": "Encoded",
   "generate": "Generate",
   "hashing": "Hash",
   "@hashing": {
@@ -21,6 +23,7 @@
   "@invalidValue": {
     "description": "invalidValue"
   },
+  "jsonStringEncoding": "JSON string encoding",
   "length": "Length: {count, plural, other{{count} characters} one{{count} character}}",
   "@length": {
     "description": "length of password characters",
