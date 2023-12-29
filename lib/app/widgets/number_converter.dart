@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/widgets/copiable_text.dart';
+import 'package:flutter_dev_toys/app/widgets/single_focus_text.dart';
 import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
 import 'package:lean_extensions/lean_extensions.dart';
@@ -79,68 +80,35 @@ class _ConvertedNumber extends StatefulWidget {
 }
 
 class _ConvertedNumberState extends State<_ConvertedNumber> {
-  final _key = UniqueKey();
-
-  // finals
-  final _focus = FocusNode();
-
   // getters
   String get _value => widget.number.toRadixExtended(widget.radix);
 
-  // mutables
-  bool _hasFocus = false;
-
-  void _setFocus(bool hasFocus) {
-    if (_hasFocus != hasFocus) {
-      setState(() {
-        _hasFocus = hasFocus;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _focus.addListener(() {
-      _setFocus(_focus.hasFocus);
-    });
-  }
-
-  @override
-  void dispose() {
-    _focus.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Focus(
-      key: _key,
-      focusNode: _focus,
-      child: Card(
-        child: ListTile(
-          title: Text(context.l10n.radix(widget.radix)),
-          subtitle: _hasFocus
-              ? TextFormField(
-                  initialValue: _value,
-                  autofocus: _hasFocus,
-                  // onTapOutside: (_) => _focus.unfocus(),
-                  // focusNode: _focus,
-                  validator: (String? value) {
-                    if (value?.tryToBigInt(widget.radix) == null) {
-                      return context.l10n.invalidValue;
-                    }
+    return Card(
+      child: ListTile(
+        title: Text(context.l10n.radix(widget.radix)),
+        subtitle: FocusWidget(
+          focused: TextFormField(
+            initialValue: _value,
+            autofocus: true,
+            // onTapOutside: (_) => _focus.unfocus(),
+            // focusNode: _focus,
+            validator: (String? value) {
+              if (value?.tryToBigInt(widget.radix) == null) {
+                return context.l10n.invalidValue;
+              }
 
-                    return null;
-                  },
-                  onChanged: (value) {
-                    setState(() {
-                      final converted = value.toBigInt(widget.radix);
-                      widget.onChanged(converted);
-                    });
-                  },
-                )
-              : CopiableText(text: _value),
+              return null;
+            },
+            onChanged: (value) {
+              setState(() {
+                final converted = value.toBigInt(widget.radix);
+                widget.onChanged(converted);
+              });
+            },
+          ),
+          unfocused: CopiableText(text: _value),
         ),
       ),
     );
