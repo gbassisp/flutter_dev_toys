@@ -36,6 +36,7 @@ get:
 .PHONY: generate
 generate: get
 	$(DART_CMD) run build_runner build --delete-conflicting-outputs
+	$(DART_CMD) format lib/gen/ --line-length 80
 
 .PHONY: clean
 clean: get
