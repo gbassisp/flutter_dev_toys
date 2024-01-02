@@ -1,7 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/view/home.dart';
-import 'package:flutter_dev_toys/l10n/arb/app_localizations.dart';
+import 'package:flutter_dev_toys/l10n/l10n.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -9,6 +9,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      onGenerateTitle: (context) => context.l10n.appName,
       theme: FlexThemeData.light(
         scheme: FlexScheme.jungle,
         surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,

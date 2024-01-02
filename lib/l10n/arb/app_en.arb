@@ -1,5 +1,6 @@
 {
   "@@locale": "en",
+  "appName": "Dev Tools",
   "counterAppBarTitle": "Counter",
   "@counterAppBarTitle": {
     "description": "Text shown in the AppBar of the Counter Page"
@@ -11,6 +12,7 @@
   "decoded": "Decoded",
   "encoded": "Encoded",
   "generate": "Generate",
+  "github": "GitHub",
   "hashing": "Hash",
   "@hashing": {
     "description": "hashing"
