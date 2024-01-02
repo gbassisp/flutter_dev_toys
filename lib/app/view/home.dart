@@ -2,7 +2,6 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/extensions/media.dart';
 import 'package:flutter_dev_toys/app/widgets/hasher.dart';
-import 'package:flutter_dev_toys/app/widgets/json_string.dart';
 import 'package:flutter_dev_toys/app/widgets/number_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/password_generator.dart';
 import 'package:flutter_dev_toys/config.dart';
@@ -47,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                       PasswordGeneratorScreen(),
                       NumberConverter(),
                       HasherWidget(),
-                      JsonStringConverter(),
+                      // JsonStringConverter(),
                     ],
                   ),
                 ),
