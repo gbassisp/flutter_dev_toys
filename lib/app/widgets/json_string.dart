@@ -29,8 +29,11 @@ class _JsonStringConverterState extends StringState<JsonStringConverter> {
   bool _valid(dynamic decoded) {
     try {
       final encoded = jsonEncode(decoded);
+      final d = jsonDecode(encoded);
       const c = DeepCollectionEquality.unordered();
-      return encoded.isNotEmpty && c.equals(jsonDecode(encoded), decoded);
+      return (decoded is Iterable && decoded.isNotEmpty ||
+              decoded is Map && decoded.isNotEmpty) &&
+          c.equals(d, decoded);
     } catch (_) {
       return false;
     }
@@ -49,8 +52,11 @@ class _JsonStringConverterState extends StringState<JsonStringConverter> {
                 initialValue: _decoded,
                 validator: (value) {
                   try {
-                    final _ = jsonEncode(value.orEmpty);
-                    return null;
+                    if (_valid(value)) {
+                      final _ = jsonEncode(value.orEmpty);
+                      return null;
+                    }
+                    return context.l10n.invalidValue;
                   } catch (_) {
                     return context.l10n.invalidValue;
                   }
