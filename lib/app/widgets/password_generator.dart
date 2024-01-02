@@ -43,20 +43,24 @@ class _PasswordGeneratorScreenState
   Widget build(BuildContext context) {
     return ToyCard(
       title: context.l10n.passwordGenerator,
-      child: ListTile(
-        title: CopiableText(text: _value),
-        subtitle: Slider.adaptive(
-          onChanged: _setSize,
-          value: _size.toDouble(),
-          label: context.l10n.length(_size),
-          divisions: _count,
-          min: _min.toDouble(),
-          max: _max.toDouble(),
-        ),
-        trailing: ElevatedButton(
-          onPressed: _regen,
-          child: Text(context.l10n.generate),
-        ),
+      child: Column(
+        children: [
+          CopiableText(text: _value),
+          ListTile(
+            title: Slider.adaptive(
+              onChanged: _setSize,
+              value: _size.toDouble(),
+              label: context.l10n.length(_size),
+              divisions: _count,
+              min: _min.toDouble(),
+              max: _max.toDouble(),
+            ),
+            trailing: ElevatedButton(
+              onPressed: _regen,
+              child: Text(context.l10n.generate),
+            ),
+          ),
+        ],
       ),
     );
   }
