@@ -33,10 +33,14 @@ get:
 	$(FLUTTER_CMD) pub get 
 	$(MAKE) l10n
 
+.PHONY: generate
+generate: get
+	$(DART_CMD) run build_runner build --delete-conflicting-outputs
+
 .PHONY: clean
 clean: get
 	$(FLUTTER_CMD) clean
-	$(MAKE) get
+	$(MAKE) generate
 
 .PHONY: doc
 doc:
