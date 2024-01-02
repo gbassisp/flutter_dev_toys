@@ -31,7 +31,8 @@ class _JsonStringConverterState extends StringState<JsonStringConverter> {
       final encoded = jsonEncode(decoded);
       final d = jsonDecode(encoded);
       const c = DeepCollectionEquality.unordered();
-      return (decoded is Iterable && decoded.isNotEmpty ||
+      return decoded is! String &&
+          (decoded is Iterable && decoded.isNotEmpty ||
               decoded is Map && decoded.isNotEmpty) &&
           c.equals(d, decoded);
     } catch (_) {
