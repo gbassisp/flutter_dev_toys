@@ -5,7 +5,9 @@ import 'package:flutter_dev_toys/app/widgets/hasher.dart';
 import 'package:flutter_dev_toys/app/widgets/json_string.dart';
 import 'package:flutter_dev_toys/app/widgets/number_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/password_generator.dart';
+import 'package:flutter_dev_toys/config.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               title: Text(context.l10n.appName),
               actions: [
                 FilledButton.tonalIcon(
-                  onPressed: () {},
+                  onPressed: () => launchUrl(githubUri),
                   icon: const Icon(Icons.open_in_new_rounded),
                   label: Text(context.l10n.github),
                 ),
