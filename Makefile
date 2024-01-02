@@ -64,9 +64,20 @@ fix:
 
 
 # Build chrome extension:
-.PHONY: chrome-extension chrome extension # Either of these targets are acceptable
+.PHONY: chrome-extension chrome extension --chrome # Either of these targets are acceptable
 chrome-extension: chrome
 extension: chrome
-chrome: --basic
+chrome: --basic --chrome
+--chrome:
 	$(FLUTTER_CMD) build web --web-renderer html --csp --release
 
+# Build linux app:
+.PHONY: linux --linux
+linux: --basic --linux
+--linux:
+	$(FLUTTER_CMD) build linux --release
+
+# Build all targets
+.PHONY: build compile
+compile: build
+build: --basic --chrome --linux
