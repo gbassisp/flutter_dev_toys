@@ -5,6 +5,7 @@ import 'package:flutter_dev_toys/app/widgets/hasher.dart';
 import 'package:flutter_dev_toys/app/widgets/number_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/password_generator.dart';
 import 'package:flutter_dev_toys/config.dart';
+import 'package:flutter_dev_toys/gen/assets.gen.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -31,7 +32,17 @@ class HomeScreen extends StatelessWidget {
                   label: Text(context.l10n.github),
                 ),
                 IconButton(
-                  onPressed: () => showAboutDialog(context: context),
+                  onPressed: () => showAboutDialog(
+                    context: context,
+                    applicationIcon: Assets.images.settings.image(),
+                    children: [
+                      Text(context.l10n.foss),
+                      TextButton(
+                        onPressed: () => launchUrl(iconUri),
+                        child: Text(context.l10n.iconAttribution),
+                      ),
+                    ],
+                  ),
                   icon: const Icon(Icons.info_outline_rounded),
                 ),
               ],

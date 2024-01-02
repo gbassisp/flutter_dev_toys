@@ -11,12 +11,14 @@
   },
   "decoded": "Decoded",
   "encoded": "Encoded",
+  "foss": "FOSS, made with Flutter 💙️",
   "generate": "Generate",
   "github": "GitHub",
   "hashing": "Hash",
   "@hashing": {
     "description": "hashing"
   },
+  "iconAttribution": "Settings icons created by Freepik - Flaticon",
   "input": "Input",
   "@input": {
     "description": "input"
