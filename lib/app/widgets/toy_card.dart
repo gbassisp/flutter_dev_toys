@@ -21,6 +21,7 @@ class _ToyCardState extends State<ToyCard> {
       child: ListTile(
         title: ListTile(
           title: Text(widget.title),
+          titleTextStyle: Theme.of(context).textTheme.headlineSmall,
           trailing: IconButton(
             icon: _expanded ? up : down,
             onPressed: () => setState(() => _expanded = !_expanded),
