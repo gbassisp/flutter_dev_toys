@@ -11,7 +11,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       onGenerateTitle: (context) => context.l10n.appName,
       theme: FlexThemeData.light(
-        scheme: FlexScheme.jungle,
+        scheme: FlexScheme.indigo,
         surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
         blendLevel: 7,
         subThemesData: const FlexSubThemesData(
@@ -34,7 +34,7 @@ class App extends StatelessWidget {
         swapLegacyOnMaterial3: true,
       ),
       darkTheme: FlexThemeData.dark(
-        scheme: FlexScheme.jungle,
+        scheme: FlexScheme.indigo,
         surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
         blendLevel: 13,
         subThemesData: const FlexSubThemesData(

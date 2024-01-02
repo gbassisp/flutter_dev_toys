@@ -1,6 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/extensions/media.dart';
+import 'package:flutter_dev_toys/app/extensions/widget.dart';
 import 'package:flutter_dev_toys/app/widgets/hasher.dart';
 import 'package:flutter_dev_toys/app/widgets/number_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/password_generator.dart';
@@ -34,7 +35,8 @@ class HomeScreen extends StatelessWidget {
                 IconButton(
                   onPressed: () => showAboutDialog(
                     context: context,
-                    applicationIcon: Assets.images.settings.image(),
+                    applicationIcon:
+                        Assets.images.settings.image().constrained(max: 50),
                     children: [
                       Text(context.l10n.foss),
                       TextButton(
