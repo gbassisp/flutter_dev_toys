@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 extension WidgetExtensions on Widget {
   Widget constrained({
-    double? size,
-    double? height,
-    double? width,
+    double? max,
+    double? min,
     double? maxHeight,
     double? maxWidth,
     double? minHeight,
@@ -12,10 +11,10 @@ extension WidgetExtensions on Widget {
   }) =>
       ConstrainedBox(
         constraints: BoxConstraints(
-          maxHeight: size ?? height ?? maxHeight ?? double.infinity,
-          maxWidth: size ?? width ?? maxWidth ?? double.infinity,
-          minHeight: size ?? height ?? minHeight ?? 0,
-          minWidth: size ?? width ?? minWidth ?? 0,
+          maxHeight: maxHeight ?? max ?? double.infinity,
+          maxWidth: maxWidth ?? max ?? double.infinity,
+          minHeight: minHeight ?? min ?? 0,
+          minWidth: minWidth ?? min ?? 0,
         ),
         child: this,
       );
