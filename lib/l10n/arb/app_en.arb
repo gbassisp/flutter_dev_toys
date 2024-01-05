@@ -61,6 +61,10 @@
       }
     }
   },
+  "saveFile": "Select file destination",
+  "@saveFile": {
+    "description": "Message to display at file destination picker"
+  },
   "sha1": "SHA-1",
   "sha224": "SHA-224",
   "sha256": "SHA-256",

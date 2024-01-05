@@ -1,8 +1,10 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:archive/archive.dart';
 import 'package:collection/collection.dart';
 import 'package:desktop_drop/desktop_drop.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:file_saver/file_saver.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -67,8 +69,10 @@ class _ImageCard extends StatelessWidget {
 
   Future<void> saveFiles(BuildContext context) async {
     try {
-      if (kIsWeb || platform.isDesktop) {
+      if (kIsWeb) {
         await download();
+      } else if (platform.isDesktop) {
+        await save(context);
       } else {
         await share();
       }
@@ -89,6 +93,15 @@ class _ImageCard extends StatelessWidget {
 
   Future<void> download() async {
     await FileSaver.instance.saveFile(name: 'test.zip', bytes: image.zip);
+  }
+
+  Future<void> save(BuildContext context) async {
+    final path = await FilePicker.platform.saveFile(
+      dialogTitle: context.l10n.saveFile,
+    );
+    if (path != null) {
+      await File(_addExtension(path)).writeAsBytes(image.zip);
+    }
   }
 
   @override
@@ -123,4 +136,15 @@ extension _ImageConverter on img.Image {
   }
 
   XFile get xzip => XFile.fromData(zip, mimeType: 'application/zip');
+}
+
+String _addExtension(String path, [String extension = 'zip']) {
+  assert(!extension.startsWith('.'), 'do not add . to file extension');
+
+  final x = '.$extension';
+  if (path.endsWith(x)) {
+    return path;
+  }
+
+  return path + x;
 }
