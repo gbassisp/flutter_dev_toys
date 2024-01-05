@@ -18,7 +18,7 @@ all: --basic doc
 .PHONY: test
 test: get
 	@echo "Running tests..."
-	$(FLUTTER_CMD) test --test-randomize-ordering-seed=random
+	$(FLUTTER_CMD) test --test-randomize-ordering-seed=random --coverage
 
 .PHONY: l10n
 l10n:
