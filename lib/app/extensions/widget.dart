@@ -21,3 +21,8 @@ extension WidgetExtensions on Widget {
 
   Widget get withSize => constrained(minHeight: 0.0001, minWidth: 0.0001);
 }
+
+extension SnackBarExtension on BuildContext {
+  void showSnackMessage(String message) =>
+      ScaffoldMessenger.of(this).showSnackBar(SnackBar(content: Text(message)));
+}

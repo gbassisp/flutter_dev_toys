@@ -19,6 +19,7 @@
     "description": "hashing"
   },
   "iconAttribution": "Settings icons created by Freepik - Flaticon",
+  "imageConverter": "Image converter",
   "input": "Input",
   "@input": {
     "description": "input"
@@ -38,6 +39,7 @@
       }
     }
   },
+  "loadImages": "Load images",
   "md5": "MD5",
   "@md5": {
     "description": "md5"
@@ -65,5 +67,15 @@
   "sha384": "SHA-384",
   "sha512": "SHA-512",
   "sha512224": "SHA-512/224",
-  "sha512256": "SHA-512/256"
+  "sha512256": "SHA-512/256",
+  "somethingWentWrong": "Something went wrong",
+  "somethingWentWrongWithMessage": "Something went wrong: {message}",
+  "@somethingWentWrongWithMessage": {
+    "description": "somethingWentWrongWithMessage",
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  }
 }

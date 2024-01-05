@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/extensions/media.dart';
 import 'package:flutter_dev_toys/app/extensions/widget.dart';
 import 'package:flutter_dev_toys/app/widgets/hasher.dart';
+import 'package:flutter_dev_toys/app/widgets/image_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/number_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/password_generator.dart';
 import 'package:flutter_dev_toys/config.dart';
@@ -56,6 +57,7 @@ class HomeScreen extends StatelessWidget {
                   autofocus: true,
                   child: Wrap(
                     children: [
+                      ImageConverter(),
                       PasswordGeneratorScreen(),
                       NumberConverter(),
                       HasherWidget(),
