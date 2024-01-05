@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:archive/archive.dart';
 import 'package:collection/collection.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:file_saver/file_saver.dart';
@@ -64,12 +65,6 @@ class _ImageCard extends StatelessWidget {
 
   final img.Image image;
 
-  Widget get thumbnail =>
-      Image.memory(png, fit: BoxFit.contain).constrained(max: 200);
-
-  Bytes get png => img.encodePng(image);
-  XFile get pngFile => XFile.fromData(png, mimeType: 'image/png');
-
   Future<void> saveFiles(BuildContext context) async {
     try {
       if (kIsWeb || platform.isDesktop) {
@@ -89,21 +84,43 @@ class _ImageCard extends StatelessWidget {
   }
 
   Future<void> share() async {
-    await Share.shareXFiles([pngFile]);
+    await Share.shareXFiles([image.xzip]);
   }
 
   Future<void> download() async {
-    await FileSaver.instance.saveFile(name: 'test123.png', bytes: png);
+    await FileSaver.instance.saveFile(name: 'test.zip', bytes: image.zip);
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: thumbnail,
+      title: image.thumbnail,
       trailing: IconButton(
         icon: const Icon(Icons.file_download_rounded),
         onPressed: () => saveFiles(context),
       ),
     );
   }
+}
+
+extension _ImageConverter on img.Image {
+  img.Image get image => img.copyResize(this, height: 256, width: 256);
+  // img.Image get image => img.Image.from(this);
+  Widget get thumbnail =>
+      Image.memory(png, fit: BoxFit.contain).constrained(max: 200);
+
+  Bytes get png => img.encodePng(image);
+  Bytes get jpg => img.encodeJpg(image);
+  Bytes get ico => img.encodeIco(image);
+
+  Bytes get zip {
+    final a = Archive()
+      ..addFile(ArchiveFile('image.png', png.lengthInBytes, png))
+      ..addFile(ArchiveFile('image.jpg', jpg.lengthInBytes, jpg))
+      ..addFile(ArchiveFile('image.ico', ico.lengthInBytes, ico));
+
+    return ZipEncoder().encode(a)! as Bytes;
+  }
+
+  XFile get xzip => XFile.fromData(zip, mimeType: 'application/zip');
 }
