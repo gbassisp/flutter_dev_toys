@@ -19,7 +19,7 @@
     "description": "hashing"
   },
   "iconAttribution": "Settings icons created by Freepik - Flaticon",
-  "imageConverter": "Image converter",
+  "imageConverter": "Icon converter",
   "input": "Input",
   "@input": {
     "description": "input"
@@ -39,7 +39,7 @@
       }
     }
   },
-  "loadImages": "Load images",
+  "loadImages": "Load icons",
   "md5": "MD5",
   "@md5": {
     "description": "md5"
