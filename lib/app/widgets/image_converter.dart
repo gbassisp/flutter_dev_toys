@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'dart:math' hide log;
 
 import 'package:archive/archive.dart';
 import 'package:collection/collection.dart';
@@ -35,7 +36,9 @@ class _ImageConverterState extends State<ImageConverter> {
     final images =
         await Future.wait(bytes.map((e) async => img.decodeImage(e)));
     setState(() {
-      _images.addAll(images.whereNotNull());
+      _images
+        ..clear()
+        ..addAll(images.whereNotNull());
     });
   }
 
@@ -92,12 +95,13 @@ class _ImageCard extends StatelessWidget {
   }
 
   Future<void> download() async {
-    await FileSaver.instance.saveFile(name: 'test.zip', bytes: image.zip);
+    await FileSaver.instance.saveFile(name: _filename, bytes: image.zip);
   }
 
   Future<void> save(BuildContext context) async {
     final path = await FilePicker.platform.saveFile(
       dialogTitle: context.l10n.saveFile,
+      fileName: _filename,
     );
     if (path != null) {
       await File(_addExtension(path)).writeAsBytes(image.zip);
@@ -116,8 +120,10 @@ class _ImageCard extends StatelessWidget {
   }
 }
 
+const _filename = 'icons.zip';
+
 extension _ImageConverter on img.Image {
-  img.Image get image => img.copyResize(this, height: 256, width: 256);
+  img.Image get image => img.Image.from(this);
   // img.Image get image => img.Image.from(this);
   Widget get thumbnail =>
       Image.memory(png, fit: BoxFit.contain).constrained(max: 200);
@@ -125,12 +131,37 @@ extension _ImageConverter on img.Image {
   Bytes get png => img.encodePng(image);
   Bytes get jpg => img.encodeJpg(image);
   Bytes get ico => img.encodeIco(image);
+  Bytes get bmp => img.encodeBmp(image);
+  Iterable<int> get sizes => ([
+        24,
+        48,
+        ...List.generate(8, (index) => pow(2, index + 4).toInt()),
+      ]..sort())
+          .reversed;
+
+  Archive get bundle {
+    final b = Archive()
+      ..addFile(ArchiveFile('png/image_$height.png', png.lengthInBytes, png))
+      ..addFile(ArchiveFile('jpg/image_$height.jpg', jpg.lengthInBytes, jpg))
+      ..addFile(ArchiveFile('bmp/image_$height.bmp', bmp.lengthInBytes, bmp));
+    // ico limit:
+    if (height <= 256) {
+      b.addFile(ArchiveFile('ico/image_$height.ico', ico.lengthInBytes, ico));
+    }
+
+    return b;
+  }
 
   Bytes get zip {
-    final a = Archive()
-      ..addFile(ArchiveFile('image.png', png.lengthInBytes, png))
-      ..addFile(ArchiveFile('image.jpg', jpg.lengthInBytes, jpg))
-      ..addFile(ArchiveFile('image.ico', ico.lengthInBytes, ico));
+    final a = Archive();
+    for (final s in sizes) {
+      final i = img.copyResize(this, height: s, width: s);
+      final b = i.bundle;
+      log(b.toString());
+      for (final f in b) {
+        a.addFile(f);
+      }
+    }
 
     return ZipEncoder().encode(a)! as Bytes;
   }
