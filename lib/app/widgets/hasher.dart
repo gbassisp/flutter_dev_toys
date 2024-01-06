@@ -29,9 +29,10 @@ class _HasherWidgetState extends StringState<HasherWidget> {
   Uint8List get _bytes => utf8.encode(_value);
 
   Widget _hash({required String name, required Hash algo}) {
+    final hash = _value.isEmpty ? _value : algo.convert(_bytes).toString();
     return ListTile(
       title: Text(name),
-      subtitle: CopiableText(text: algo.convert(_bytes).toString()),
+      subtitle: CopiableText(text: hash),
     );
   }
 
