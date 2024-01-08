@@ -12,6 +12,7 @@ dependencies:
   collection: ^1.18.0
   crypto: ^3.0.3
   desktop_drop: ^0.4.4
+  easy_debounce: ^2.0.3
   file_picker: ^6.1.1
   file_saver: ^0.2.9
   flex_color_scheme: ^7.3.1
@@ -24,8 +25,10 @@ dependencies:
   intl: ^0.18.1
   lean_extensions: ^0.12.1
   path_provider: ^2.1.1
+  pretty_qr_code: ^3.0.0
   share_plus: ^7.2.1
   url_launcher: ^6.2.2
+  widgets_to_image: ^0.0.2
 
 dev_dependencies:
   # boolean_lints: ^2.0.0

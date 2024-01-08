@@ -52,6 +52,7 @@
   "@passwordGenerator": {
     "description": "passwordGenerator"
   },
+  "qrCode": "QR Code",
   "radix": "Base {base}",
   "@radix": {
     "description": "radix",
