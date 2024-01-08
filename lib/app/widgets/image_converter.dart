@@ -56,7 +56,7 @@ class _ImageConverterState extends State<ImageConverter> {
               ),
             ),
           ),
-          Wrap(children: _images.map((e) => _ImageCard(image: e)).toList()),
+          Wrap(children: _images.map((e) => ImageCard(image: e)).toList()),
         ],
       ),
     );
@@ -65,8 +65,8 @@ class _ImageConverterState extends State<ImageConverter> {
 
 typedef Bytes = Uint8List;
 
-class _ImageCard extends StatelessWidget {
-  const _ImageCard({required this.image});
+class ImageCard extends StatelessWidget {
+  const ImageCard({required this.image, super.key});
 
   final img.Image image;
 
