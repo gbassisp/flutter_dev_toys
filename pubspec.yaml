@@ -31,7 +31,7 @@ dev_dependencies:
   # boolean_lints: ^2.0.0
   build_runner: ^2.4.7
   custom_lint: ^0.5.7
-  flutter_gen_runner: ^5.3.2
+  flutter_gen_runner: ^5.4.0
   flutter_sane_lints: ^0.3.0
   flutter_test:
     sdk: flutter
