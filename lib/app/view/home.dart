@@ -58,11 +58,11 @@ class HomeScreen extends StatelessWidget {
                   autofocus: true,
                   child: Wrap(
                     children: [
-                      QrCodeGenerator(),
-                      ImageConverter(),
                       PasswordGeneratorScreen(),
+                      QrCodeGenerator(),
                       NumberConverter(),
                       HasherWidget(),
+                      ImageConverter(),
                       // JsonStringConverter(),
                     ],
                   ),
