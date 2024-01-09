@@ -24,7 +24,7 @@ dependencies:
   image_picker: ^1.0.5
   intl: ^0.18.1
   lean_extensions: ^0.12.1
-  path_provider: ^2.1.1
+  path_provider: ^2.1.2
   pretty_qr_code: ^3.0.0
   share_plus: ^7.2.1
   url_launcher: ^6.2.2
