@@ -27,7 +27,7 @@ dependencies:
   path_provider: ^2.1.1
   pretty_qr_code: ^3.0.0
   share_plus: ^7.2.1
-  url_launcher: ^6.2.2
+  url_launcher: ^6.2.3
   widgets_to_image: ^0.0.2
 
 dev_dependencies:
