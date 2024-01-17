@@ -75,7 +75,7 @@ chrome: --basic --chrome
 # Build web SPA
 .PHONY: web
 web: --basic
-	$(FLUTTER_CMD) build web --web-renderer html --release
+	$(FLUTTER_CMD) build web --web-renderer --release
 
 # Build linux app:
 .PHONY: linux --linux
