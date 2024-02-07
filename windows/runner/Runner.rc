@@ -95,7 +95,7 @@ BEGIN
             VALUE "InternalName", "flutter_dev_toys" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.el-darto.flutter-dev-toys. All rights reserved." "\0"
             VALUE "OriginalFilename", "flutter_dev_toys.exe" "\0"
-            VALUE "ProductName", "Flutter Dev Toys" "\0"
+            VALUE "ProductName", "Flutter Dev Gadgets" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

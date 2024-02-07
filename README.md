@@ -1,4 +1,4 @@
-# Flutter Dev Toys
+# Flutter Dev Gadgets
 <!-- 
 ![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
@@ -15,7 +15,7 @@ The easiest way to build this is as a web app. Just run the following and you wi
 make web
 ```
 
-_\*Flutter Dev Toys works on iOS, Android, Web, and Windows._
+_\*Flutter Dev Gadgets works on iOS, Android, Web, and Windows._
 
 ---
 
