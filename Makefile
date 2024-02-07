@@ -83,7 +83,13 @@ linux: --basic --linux
 --linux:
 	$(FLUTTER_CMD) build linux --release
 
+# Build linux app:
+.PHONY: android --android
+android: --basic --android
+--android:
+	$(FLUTTER_CMD) build apk --release
+
 # Build all targets
 .PHONY: build compile
 compile: build
-build: --basic --chrome --linux
+build: --basic --chrome --android --linux
