@@ -39,13 +39,7 @@ class HomeScreen extends StatelessWidget {
                     context: context,
                     applicationIcon:
                         Assets.images.settings.image().constrained(max: 50),
-                    children: [
-                      Text(context.l10n.foss),
-                      TextButton(
-                        onPressed: () => launchUrl(iconUri),
-                        child: Text(context.l10n.iconAttribution),
-                      ),
-                    ],
+                    children: [Text(context.l10n.foss)],
                   ),
                   icon: const Icon(Icons.info_outline_rounded),
                 ),
