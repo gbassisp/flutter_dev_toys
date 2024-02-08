@@ -15,6 +15,7 @@ import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
+import 'package:lean_extensions/lean_extensions.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ImageConverter extends StatefulWidget {
@@ -132,11 +133,22 @@ extension _ImageConverter on img.Image {
   Bytes get jpg => img.encodeJpg(image);
   Bytes get ico => img.encodeIco(image);
   Bytes get bmp => img.encodeBmp(image);
-  Iterable<int> get sizes => ([
+  Iterable<int> get sizes => ({
+        20,
         24,
+        29,
+        40,
         48,
+        60,
+        72,
+        76,
+        83,
+        120,
+        196,
+        216,
         ...List.generate(8, (index) => pow(2, index + 4).toInt()),
-      ]..sort())
+      }.toArray()
+            ..sort())
           .reversed;
 
   Archive get bundle {
