@@ -8,7 +8,7 @@
 PRODUCT_NAME = flutter_dev_toys
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.el-darto.flutterDevGadgets
+PRODUCT_BUNDLE_IDENTIFIER = com.eldarto.flutterDevToys
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2024 com.el-darto. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 com.eldarto. All rights reserved.
