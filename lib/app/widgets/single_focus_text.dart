@@ -27,12 +27,20 @@ class _FocusWidgetState extends State<FocusWidget> {
     setState(() {
       final hasFocus = _focus.hasFocus;
       final hasPrimary = _focus.hasPrimaryFocus;
+
       if (_hasFocus != hasFocus) {
         _hasFocus = hasFocus;
       }
 
       if (hasFocus && hasPrimary) {
         _focus.nextFocus();
+      }
+
+      for (final f in _focus.children) {
+        if (f.hasPrimaryFocus) {
+          _focus.unfocus();
+          f.requestFocus();
+        }
       }
     });
   }
@@ -51,9 +59,13 @@ class _FocusWidgetState extends State<FocusWidget> {
 
   @override
   Widget build(BuildContext context) {
+    assert(_focus.children.length < 2, 'only 1 focusable child is allowed');
+
     return Focus(
       key: _key,
       focusNode: _focus,
+      autofocus: true,
+      canRequestFocus: false,
       child: _hasFocus ? widget.focused : widget.unfocused,
     );
   }
