@@ -7,6 +7,7 @@
 FVM_CMD := $(shell command -v fvm 2> /dev/null)
 DART_CMD := $(FVM_CMD) dart
 FLUTTER_CMD := $(FVM_CMD) flutter
+ZIP := zip
 
 export PATH := $(HOME)/.pub-cache/bin:$(PATH)
 
@@ -71,6 +72,7 @@ extension: chrome
 chrome: --basic --chrome
 --chrome:
 	$(FLUTTER_CMD) build web --web-renderer html --csp --release
+	$(ZIP) -r build/web.zip build/web/*
 
 # Build web SPA
 .PHONY: web
@@ -87,7 +89,7 @@ linux: --basic --linux
 .PHONY: android --android
 android: --basic --android
 --android:
-	$(FLUTTER_CMD) build apk --release
+	$(FLUTTER_CMD) build appbundle --release
 
 # Build all targets
 .PHONY: build compile
