@@ -1,6 +1,6 @@
 {
-    "name": "Flutter Dev Gadgets",
-    "short_name": "Flutter Dev Gadgets",
+    "name": "Dev Gadgets",
+    "short_name": "Dev Gadgets",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
