@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dev_toys/app/widgets/copiable_text.dart';
 import 'package:flutter_dev_toys/app/widgets/single_focus_text.dart';
 import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
@@ -88,27 +87,21 @@ class _ConvertedNumberState extends State<_ConvertedNumber> {
     return Card(
       child: ListTile(
         title: Text(context.l10n.radix(widget.radix)),
-        subtitle: FocusWidget(
-          focused: TextFormField(
-            initialValue: _value,
-            autofocus: true,
-            // onTapOutside: (_) => _focus.unfocus(),
-            // focusNode: _focus,
-            validator: (String? value) {
-              if (value?.tryToBigInt(widget.radix) == null) {
-                return context.l10n.invalidValue;
-              }
+        subtitle: FocusTextFormField(
+          text: _value,
+          validator: (String? value) {
+            if (value?.tryToBigInt(widget.radix) == null) {
+              return context.l10n.invalidValue;
+            }
 
-              return null;
-            },
-            onChanged: (value) {
-              setState(() {
-                final converted = value.toBigInt(widget.radix);
-                widget.onChanged(converted);
-              });
-            },
-          ),
-          unfocused: CopiableText(text: _value),
+            return null;
+          },
+          onChanged: (value) {
+            setState(() {
+              final converted = value.toBigInt(widget.radix);
+              widget.onChanged(converted);
+            });
+          },
         ),
       ),
     );

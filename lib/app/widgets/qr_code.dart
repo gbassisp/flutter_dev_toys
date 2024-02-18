@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/extensions/widget.dart';
 import 'package:flutter_dev_toys/app/widgets/components.dart';
-import 'package:flutter_dev_toys/app/widgets/copiable_text.dart';
 import 'package:flutter_dev_toys/app/widgets/single_focus_text.dart';
 import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
@@ -28,14 +27,7 @@ class _QrCodeGeneratorState extends StringState<QrCodeGenerator> {
       title: context.l10n.qrCode,
       child: Column(
         children: [
-          FocusWidget(
-            focused: TextFormField(
-              initialValue: _value,
-              autofocus: true,
-              onChanged: _setText,
-            ),
-            unfocused: CopiableText(text: _value),
-          ),
+          FocusTextFormField(text: _value, onChanged: _setText),
           if (_value.isNotEmpty)
             Card(
               color: Colors.white,

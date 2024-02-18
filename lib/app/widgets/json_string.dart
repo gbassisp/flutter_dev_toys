@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/widgets/components.dart';
-import 'package:flutter_dev_toys/app/widgets/copiable_text.dart';
 import 'package:flutter_dev_toys/app/widgets/single_focus_text.dart';
 import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
@@ -48,52 +47,42 @@ class _JsonStringConverterState extends StringState<JsonStringConverter> {
         children: [
           ListTile(
             title: Text(context.l10n.decoded),
-            subtitle: FocusWidget(
-              focused: TextFormField(
-                initialValue: _decoded,
-                validator: (value) {
-                  try {
-                    if (_valid(value)) {
-                      final _ = jsonEncode(value.orEmpty);
-                      return null;
-                    }
-                    return context.l10n.invalidValue;
-                  } catch (_) {
-                    return context.l10n.invalidValue;
+            subtitle: FocusTextFormField(
+              text: _decoded,
+              validator: (value) {
+                try {
+                  if (_valid(value)) {
+                    final _ = jsonEncode(value.orEmpty);
+                    return null;
                   }
-                },
-                onChanged: (value) => setState(() {
-                  _encoded = jsonEncode(value);
-                }),
-              ),
-              unfocused: CopiableText(
-                text: _decoded,
-              ),
+                  return context.l10n.invalidValue;
+                } catch (_) {
+                  return context.l10n.invalidValue;
+                }
+              },
+              onChanged: (value) => setState(() {
+                _encoded = jsonEncode(value);
+              }),
             ),
           ),
           ListTile(
             title: Text(context.l10n.encoded),
-            subtitle: FocusWidget(
-              focused: TextFormField(
-                initialValue: _encoded,
-                validator: (value) {
-                  try {
-                    final d = jsonDecode(value.orEmpty);
-                    if (_valid(d)) {
-                      return null;
-                    }
-                    return context.l10n.invalidValue;
-                  } catch (_) {
-                    return context.l10n.invalidValue;
+            subtitle: FocusTextFormField(
+              text: _encoded,
+              validator: (value) {
+                try {
+                  final d = jsonDecode(value.orEmpty);
+                  if (_valid(d)) {
+                    return null;
                   }
-                },
-                onChanged: (value) => setState(() {
-                  _encoded = value;
-                }),
-              ),
-              unfocused: CopiableText(
-                text: _encoded,
-              ),
+                  return context.l10n.invalidValue;
+                } catch (_) {
+                  return context.l10n.invalidValue;
+                }
+              },
+              onChanged: (value) => setState(() {
+                _encoded = value;
+              }),
             ),
           ),
         ],

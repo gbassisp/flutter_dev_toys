@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dev_toys/app/widgets/copiable_text.dart';
 
 class FocusWidget extends StatefulWidget {
   const FocusWidget({
@@ -54,6 +55,31 @@ class _FocusWidgetState extends State<FocusWidget> {
       key: _key,
       focusNode: _focus,
       child: _hasFocus ? widget.focused : widget.unfocused,
+    );
+  }
+}
+
+class FocusTextFormField extends StatelessWidget {
+  const FocusTextFormField({
+    required this.text,
+    this.onChanged,
+    this.validator,
+    super.key,
+  });
+  final String text;
+  final ValueChanged<String>? onChanged;
+  final String? Function(String?)? validator;
+
+  @override
+  Widget build(BuildContext context) {
+    return FocusWidget(
+      focused: TextFormField(
+        initialValue: text,
+        autofocus: true,
+        onChanged: onChanged,
+        validator: validator,
+      ),
+      unfocused: CopiableText(text: text),
     );
   }
 }
