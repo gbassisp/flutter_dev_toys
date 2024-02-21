@@ -14,11 +14,15 @@ on:
 
 jobs:
   build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-    with:
-      setup: make doctor generate
-      flutter_channel: stable
-      min_coverage: 0
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Install missing apt packages
+      run: sudo apt-get install -y libgtk-3-dev ninja-build
+    - uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+      with:
+        setup: make doctor generate
+        flutter_channel: stable
+        min_coverage: 0
 
   spell-check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
