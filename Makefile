@@ -49,6 +49,10 @@ doc:
 	@echo "Generating documentation..."
 	@$(DART_CMD) doc || echo "Failed to generate documentation - maybe it's dart 2.12?"
 
+.PHONY: doctor
+doctor:
+	@$(FLUTTER_CMD) doctor -v
+
 .PHONY: analyze analyse lint analysis # main is always the first one
 lint: analyze
 analysis: analyze
