@@ -53,7 +53,7 @@ doc:
 .PHONY: doctor
 doctor:
 	@$(FLUTTER_CMD) doctor -v
-	@sed -i '' '/custom_lint/d' analysis_options.yaml
+	@sed -i '/custom_lint/d' analysis_options.yaml
 
 .PHONY: analyze analyse lint analysis # main is always the first one
 lint: analyze
