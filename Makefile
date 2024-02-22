@@ -49,9 +49,11 @@ doc:
 	@echo "Generating documentation..."
 	@$(DART_CMD) doc || echo "Failed to generate documentation - maybe it's dart 2.12?"
 
+# with a hack to remove custom_lint on ci
 .PHONY: doctor
 doctor:
 	@$(FLUTTER_CMD) doctor -v
+	@sed -i '' '/custom_lint/d' analysis_options.yaml
 
 .PHONY: analyze analyse lint analysis # main is always the first one
 lint: analyze
