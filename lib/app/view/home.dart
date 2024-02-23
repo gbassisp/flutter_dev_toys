@@ -7,6 +7,7 @@ import 'package:flutter_dev_toys/app/widgets/image_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/number_converter.dart';
 import 'package:flutter_dev_toys/app/widgets/password_generator.dart';
 import 'package:flutter_dev_toys/app/widgets/qr_code.dart';
+import 'package:flutter_dev_toys/app/widgets/url_encode.dart';
 import 'package:flutter_dev_toys/app/widgets/uuid_generator.dart';
 import 'package:flutter_dev_toys/config.dart';
 import 'package:flutter_dev_toys/gen/assets.gen.dart';
@@ -62,6 +63,7 @@ class HomeScreen extends StatelessWidget {
                       PasswordGeneratorScreen(),
                       UUIDGeneratorScreen(),
                       QrCodeGenerator(),
+                      UrlEncoder(),
                       NumberConverter(),
                       HasherWidget(),
                       ImageConverter(),

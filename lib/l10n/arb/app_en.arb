@@ -9,7 +9,9 @@
   "@copy": {
     "description": "copy"
   },
+  "decode": "Decode",
   "decoded": "Decoded",
+  "encode": "Encode",
   "encoded": "Encoded",
   "foss": "FOSS, made with Flutter 💙️",
   "generate": "Generate",
@@ -83,6 +85,7 @@
       }
     }
   },
+  "urlEncoder": "URL Encoder",
   "uuidGenerator": "UUID Generator",
   "uuidV1": "UUID v1 (time-based id)",
   "uuidV4": "UUID v4 (random id)"
