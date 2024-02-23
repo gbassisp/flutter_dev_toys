@@ -3,7 +3,6 @@ import 'package:flutter_dev_toys/app/widgets/components.dart';
 import 'package:flutter_dev_toys/app/widgets/single_focus_text.dart';
 import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
 import 'package:flutter_dev_toys/l10n/l10n.dart';
-import 'package:lean_extensions/lean_extensions.dart';
 
 class UrlEncoder extends StatefulWidget {
   const UrlEncoder({super.key});
