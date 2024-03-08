@@ -13,8 +13,9 @@ dependencies:
   crypto: ^3.0.3
   desktop_drop: ^0.4.4
   easy_debounce: ^2.0.3
+  english_numerals: ^0.2.1
   file_picker: ^6.1.1
-  file_saver: ^0.2.9
+  file_saver: ^0.2.11
   flex_color_scheme: ^7.3.1
   flutter:
     sdk: flutter
@@ -23,7 +24,7 @@ dependencies:
   image: ^4.1.3
   image_picker: ^1.0.5
   intl: ^0.18.1
-  lean_extensions: ^0.13.0
+  lean_extensions: ^0.13.1
   path_provider: ^2.1.1
   pretty_qr_code: ^3.0.0
   share_plus: ^7.2.1
@@ -34,7 +35,7 @@ dependencies:
 dev_dependencies:
   # boolean_lints: ^2.0.0
   build_runner: ^2.4.7
-  custom_lint: ^0.5.7
+  custom_lint: ^0.5.11
   flutter_gen_runner: ^5.3.2
   flutter_sane_lints: ^0.3.0
   flutter_test:
