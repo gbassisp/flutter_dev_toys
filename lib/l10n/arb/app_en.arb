@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   "appName": "Dev Gadgets",
+  "cardinal": "Cardinal",
   "counterAppBarTitle": "Counter",
   "@counterAppBarTitle": {
     "description": "Text shown in the AppBar of the Counter Page"

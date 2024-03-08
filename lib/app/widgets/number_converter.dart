@@ -1,3 +1,4 @@
+import 'package:english_numerals/english_numerals.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/widgets/single_focus_text.dart';
 import 'package:flutter_dev_toys/app/widgets/toy_card.dart';
@@ -13,6 +14,13 @@ class NumberConverter extends StatefulWidget {
 
 class _NumberConverterState extends State<NumberConverter> {
   BigInt _value = BigInt.zero;
+  String? get _cardinal {
+    try {
+      return Cardinal(_value).enUk;
+    } catch (_) {
+      return null;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +64,29 @@ class _NumberConverterState extends State<NumberConverter> {
               number: _value,
               onChanged: (number) => setState(() => _value = number),
               radix: 64,
+            ),
+            Card(
+              child: ListTile(
+                title: Text(context.l10n.cardinal),
+                subtitle: FocusTextFormField(
+                  text: _cardinal ?? context.l10n.invalidValue,
+                  validator: (String? value) {
+                    try {
+                      final _ = Cardinal(value).toBigInt();
+                    } catch (_) {
+                      return context.l10n.invalidValue;
+                    }
+
+                    return null;
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      final converted = Cardinal(value).toBigInt();
+                      _value = converted;
+                    });
+                  },
+                ),
+              ),
             ),
           ],
         ),
