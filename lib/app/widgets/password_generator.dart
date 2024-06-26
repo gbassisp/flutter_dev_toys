@@ -25,7 +25,13 @@ class _PasswordGeneratorScreenState
 
   void _regen() {
     setState(() {
-      _value = Random().nextString(_size);
+      _value = Random().nextString(
+        length: _size,
+        chars: '0123456789'
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            'abcdefghijklmnopqrstuvwxyz'
+            '+/',
+      );
     });
   }
 
