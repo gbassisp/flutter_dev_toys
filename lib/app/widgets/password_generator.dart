@@ -47,13 +47,16 @@ class _PasswordGeneratorScreenState
         children: [
           CopiableText(text: _value),
           ListTile(
-            title: Slider.adaptive(
-              onChanged: _setSize,
-              value: _size.toDouble(),
-              label: context.l10n.length(_size),
-              divisions: _count,
-              min: _min.toDouble(),
-              max: _max.toDouble(),
+            title: ListTile(
+              title: Slider.adaptive(
+                onChanged: _setSize,
+                value: _size.toDouble(),
+                label: context.l10n.length(_size),
+                divisions: _count,
+                min: _min.toDouble(),
+                max: _max.toDouble(),
+              ),
+              trailing: Text(_size.toString()),
             ),
             trailing: ElevatedButton(
               onPressed: _regen,
