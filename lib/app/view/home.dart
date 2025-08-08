@@ -1,4 +1,5 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dev_toys/app/extensions/media.dart';
 import 'package:flutter_dev_toys/app/extensions/widget.dart';
@@ -56,6 +57,7 @@ class HomeScreen extends StatelessWidget {
             body: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
               child: const SingleChildScrollView(
+                primary: !kIsWeb,
                 child: FocusScope(
                   autofocus: true,
                   child: Wrap(
