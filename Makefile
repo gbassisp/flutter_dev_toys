@@ -77,13 +77,13 @@ chrome-extension: chrome
 extension: chrome
 chrome: --basic --chrome
 --chrome:
-	$(FLUTTER_CMD) build web --web-renderer html --csp --release
+	$(FLUTTER_CMD) build web --csp --release -O 0
 	$(ZIP) -r build/web.zip build/web/*
 
 # Build web SPA
 .PHONY: web
 web: --basic
-	$(FLUTTER_CMD) build web --release
+	$(FLUTTER_CMD) build web --release -O 0
 
 # Build linux app:
 .PHONY: linux --linux
