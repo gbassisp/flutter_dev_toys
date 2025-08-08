@@ -31,7 +31,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.eldarto.flutter_dev_toys"
-    compileSdk 34 //flutter.compileSdkVersion
+    compileSdk 35 //flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
     compileOptions {
