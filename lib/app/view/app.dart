@@ -20,8 +20,7 @@ class App extends StatelessWidget {
           blendLevel: 7,
           subThemesData: const FlexSubThemesData(
             blendOnLevel: 10,
-            blendOnColors: false,
-            useTextTheme: true,
+            // useTextTheme: true,
             useM2StyleDividerInM3: true,
             alignedDropdown: true,
             useInputDecoratorThemeInDialogs: true,
@@ -34,7 +33,6 @@ class App extends StatelessWidget {
             adaptiveSplash: FlexAdaptive.all(),
           ),
           visualDensity: FlexColorScheme.comfortablePlatformDensity,
-          useMaterial3: true,
           swapLegacyOnMaterial3: true,
         ),
         darkTheme: FlexThemeData.dark(
@@ -43,7 +41,7 @@ class App extends StatelessWidget {
           blendLevel: 13,
           subThemesData: const FlexSubThemesData(
             blendOnLevel: 20,
-            useTextTheme: true,
+            // useTextTheme: true,
             useM2StyleDividerInM3: true,
             alignedDropdown: true,
             useInputDecoratorThemeInDialogs: true,
@@ -56,7 +54,6 @@ class App extends StatelessWidget {
             adaptiveSplash: FlexAdaptive.all(),
           ),
           visualDensity: FlexColorScheme.comfortablePlatformDensity,
-          useMaterial3: true,
           swapLegacyOnMaterial3: true,
         ),
         // themeMode: ThemeMode.system,

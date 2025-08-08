@@ -3,7 +3,6 @@ import 'dart:io';
 import 'dart:math' hide log;
 
 import 'package:archive/archive.dart';
-import 'package:collection/collection.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:file_saver/file_saver.dart';
@@ -39,7 +38,7 @@ class _ImageConverterState extends State<ImageConverter> {
     setState(() {
       _images
         ..clear()
-        ..addAll(images.whereNotNull());
+        ..addAll(images.nonNulls);
     });
   }
 
@@ -92,7 +91,8 @@ class ImageCard extends StatelessWidget {
   }
 
   Future<void> share() async {
-    await Share.shareXFiles([image.xzip]);
+    final shareParams = ShareParams(files: [image.xzip]);
+    await SharePlus.instance.share(shareParams);
   }
 
   Future<void> download() async {
@@ -175,7 +175,7 @@ extension _ImageConverter on img.Image {
       }
     }
 
-    return ZipEncoder().encode(a)! as Bytes;
+    return ZipEncoder().encode(a) as Bytes;
   }
 
   XFile get xzip => XFile.fromData(zip, mimeType: 'application/zip');
