@@ -21,7 +21,7 @@ class _PasswordGeneratorScreenState
   int _size = 50;
   final _max = 100;
   final _min = 6;
-  late final _count = _max - _min + 1;
+  late final int _count = _max - _min + 1;
 
   void _regen() {
     setState(() {

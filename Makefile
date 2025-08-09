@@ -23,7 +23,7 @@ test: get
 
 .PHONY: l10n
 l10n:
-	$(FLUTTER_CMD) gen-l10n
+# 	$(FLUTTER_CMD) gen-l10n
 	$(DART_CMD) format lib/l10n/arb --line-length 80
 
 .PHONY: get
@@ -31,7 +31,8 @@ get:
 	@echo "Checking version..."
 	$(FLUTTER_CMD) --version
 	@echo "Getting dependencies..."
-	$(FLUTTER_CMD) pub get 
+	$(DART_CMD) pub get
+	$(FLUTTER_CMD) pub get
 	$(MAKE) l10n
 
 .PHONY: generate
