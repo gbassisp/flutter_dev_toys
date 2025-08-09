@@ -1,4 +1,3 @@
 import 'package:provider/provider.dart';
 
-// ignore: strict_raw_type
-final List<InheritedProvider> providers = [Provider.value(value: 1)];
+final List<InheritedProvider<int>> providers = [Provider<int>.value(value: 1)];
