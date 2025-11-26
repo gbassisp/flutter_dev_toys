@@ -170,9 +170,7 @@ extension _ImageConverter on img.Image {
       final i = img.copyResize(this, height: s, width: s);
       final b = i.bundle;
       log(b.toString());
-      for (final f in b) {
-        a.addFile(f);
-      }
+      b.forEach(a.addFile);
     }
 
     return ZipEncoder().encode(a) as Bytes;
