@@ -1,6 +1,6 @@
 {
     "name": "Flutter Safe Development",
-    "image": "ghcr.io/cirruslabs/flutter:3.38.2",
+    "image": "ghcr.io/cirruslabs/flutter:3.41.7",
     "customizations": {
         "vscode": {
             "settings": {
@@ -11,7 +11,9 @@
                 "Dart-Code.flutter",
                 "Dart-Code.dart-code",
                 "emmanuelbeziat.vscode-great-icons",
-                "usernamehw.errorlens"
+                "usernamehw.errorlens",
+                "ryanluker.vscode-coverage-gutters",
+                "Flutterando.flutter-coverage"
             ]
         }
     },
