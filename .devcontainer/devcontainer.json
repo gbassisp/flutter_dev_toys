@@ -1,0 +1,30 @@
+{
+    "name": "Flutter Safe Development",
+    "image": "ghcr.io/cirruslabs/flutter:3.38.2",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "dart.flutterSdkPath": "/opt/flutter",
+                "dart.sdkPath": "/opt/flutter/bin/cache/dart-sdk"
+            },
+            "extensions": [
+                "Dart-Code.flutter",
+                "Dart-Code.dart-code",
+                "emmanuelbeziat.vscode-great-icons",
+                "usernamehw.errorlens"
+            ]
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/sshd:1": {}
+    },
+    "postCreateCommand": "flutter pub get",
+    "remoteUser": "root",
+    "forwardPorts": [
+        8080,
+        8081
+    ],
+    "runArgs": [
+        "--privileged"
+    ]
+}
