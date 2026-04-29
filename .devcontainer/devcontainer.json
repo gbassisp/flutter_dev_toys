@@ -1,0 +1,34 @@
+{
+    "name": "Dev Gadgets",
+    "image": "ghcr.io/cirruslabs/flutter:3.41.7",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "dart.flutterSdkPath": "/opt/flutter",
+                "dart.sdkPath": "/opt/flutter/bin/cache/dart-sdk"
+            },
+            "extensions": [
+                "Dart-Code.flutter",
+                "Dart-Code.dart-code",
+                "emmanuelbeziat.vscode-great-icons",
+                "usernamehw.errorlens",
+                "ryanluker.vscode-coverage-gutters",
+                "Flutterando.flutter-coverage"
+            ]
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/sshd:1": {}
+    },
+    "postCreateCommand": "flutter pub get",
+    "remoteUser": "root",
+    "forwardPorts": [
+        8080,
+        8081
+    ],
+    "runArgs": [
+        "--platform",
+        "linux/amd64",
+        "--privileged"
+    ]
+}
