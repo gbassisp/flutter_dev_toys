@@ -1,5 +1,5 @@
 {
-    "name": "Flutter Safe Development",
+    "name": "Dev Gadgets",
     "image": "ghcr.io/cirruslabs/flutter:3.41.7",
     "customizations": {
         "vscode": {
@@ -27,6 +27,8 @@
         8081
     ],
     "runArgs": [
+        "--platform",
+        "linux/amd64",
         "--privileged"
     ]
 }
